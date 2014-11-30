@@ -38,6 +38,8 @@ var chatbox = {
             type: 'POST',
             success: function(data) {
                 logger.log(data.response, 'received');
+                var speech = new SpeechSynthesisUtterance(data.response);
+                speechSynthesis.speak(speech);
                 chatbox.listen();
             }
         });
