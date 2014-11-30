@@ -11,3 +11,34 @@
 html {
     font-size: 62.5%;
 }
+
+.chatbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 500px;
+    background-color: #eeeeee;
+    margin: -250px 0 0 -200px;
+    border: 1px solid #aaaaaa;
+}
+
+.messages {
+    padding: 5px;
+}
+
+.message {
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.message:last-of-type {
+    margin-bottom: 0;
+}
+
+.message p {
+    font: normal 1.4rem/1 "Consolas", monospace;
+    color: #333333;
+}
