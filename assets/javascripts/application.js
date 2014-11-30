@@ -5,7 +5,7 @@ $(document).ready(function() {
 var chatbox = {
     input: null,
     recognizer: null,
-    endpoint: 'http://localhost:3000',
+    endpoint: location.href,
     initialize: function() {
         chatbox.listen();
     },
