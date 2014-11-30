@@ -39,5 +39,6 @@ var logger = {
         var template = $(logger.template).addClass(type);
         template.find('p').text(message);
         logger.container.append(template);
+        $('.chatbox').scrollTop(100000);
     }
 };
