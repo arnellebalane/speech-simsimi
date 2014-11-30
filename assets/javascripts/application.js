@@ -13,6 +13,18 @@ var chatbox = {
         chatbox.recognizer = new webkitSpeechRecognition();
         chatbox.recognizer.start();
 
+        chatbox.recognizer.onspeechstart = function(e) {
+            $('.indicator').removeClass('processing').addClass('recording');
+        };
+
+        chatbox.recognizer.onspeechend = function(e) {
+            $('.indicator').removeClass('recording').addClass('processing');
+        };
+
+        chatbox.recognizer.onend = function(e) {
+            $('.indicator').removeClass('recording processing');
+        };
+
         chatbox.recognizer.onresult = function(e) {
             var message = e.results[0][0].transcript;
             logger.log(message, 'sent');
@@ -39,6 +51,6 @@ var logger = {
         var template = $(logger.template).addClass(type);
         template.find('p').text(message);
         logger.container.append(template);
-        $('.chatbox').scrollTop(100000);
+        logger.container.scrollTop(100000);
     }
 };
