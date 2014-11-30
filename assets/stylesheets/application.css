@@ -27,6 +27,7 @@ html {
     background-color: #eeeeee;
     margin: -250px 0 0 -200px;
     border: 1px solid #aaaaaa;
+    border-radius: 2px;
 }
 
 .messages {
