@@ -12,6 +12,12 @@ html {
     font-size: 62.5%;
 }
 
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
 .chatbox {
     position: absolute;
     top: 50%;
@@ -21,17 +27,37 @@ html {
     background-color: #eeeeee;
     margin: -250px 0 0 -200px;
     border: 1px solid #aaaaaa;
+    overflow: auto;
 }
 
 .messages {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     padding: 5px;
 }
 
 .message {
-    border: 1px solid #cccccc;
+    position: relative;
+    max-width: 80%;
     background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
     padding: 10px;
     margin-bottom: 5px;
+    clear: both;
+}
+
+.message:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #cccccc url("../images/account.svg") center center no-repeat;
+    background-size: 75% auto;
+    opacity: 0.75;
 }
 
 .message:last-of-type {
@@ -41,4 +67,22 @@ html {
 .message p {
     font: normal 1.4rem/1 "Consolas", monospace;
     color: #333333;
+}
+
+.message.received {
+    float: left;
+    padding-left: 34px;
+}
+
+.message.sent {
+    float: right;
+    padding-right: 34px;
+}
+
+.message.received:before {
+    left: 5px;
+}
+
+.message.sent:before {
+    right: 5px;
 }

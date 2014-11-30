@@ -15,7 +15,7 @@ var chatbox = {
 
         chatbox.recognizer.onresult = function(e) {
             var message = e.results[0][0].transcript;
-            logger.log(message);
+            logger.log(message, 'sent');
             chatbox.send(message);
         };
     },
@@ -25,7 +25,7 @@ var chatbox = {
             data: { text: message },
             type: 'POST',
             success: function(data) {
-                logger.log(data.response);
+                logger.log(data.response, 'received');
                 chatbox.listen();
             }
         });
@@ -35,8 +35,8 @@ var chatbox = {
 var logger = {
     container: $('.messages'),
     template: $('template#message').html(),
-    log: function(message) {
-        var template = $(logger.template);
+    log: function(message, type) {
+        var template = $(logger.template).addClass(type);
         template.find('p').text(message);
         logger.container.append(template);
     }
