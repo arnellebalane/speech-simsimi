@@ -39,6 +39,9 @@ var chatbox = {
             success: function(data) {
                 logger.log(data.response, 'received');
                 var speech = new SpeechSynthesisUtterance(data.response);
+                speech.volume = 1;
+                speech.rate = 10;
+                speech.pitch = 2;
                 speechSynthesis.speak(speech);
                 chatbox.listen();
             }
