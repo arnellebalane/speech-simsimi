@@ -32,5 +32,11 @@ app.post('/', function(req, res) {
     // var key = '803e8edf-ee14-4d56-b1d4-c3c94dd80a4a';
     var key = '6d5a32e7-6338-448c-a5fe-5e5e6fdbdf86';
     var url = 'http://sandbox.api.simsimi.com/request.p?key=' + key + '&lc=en&text=' + text;
-    request(url).pipe(res);
+    request(url).on('response', function(response) {
+        response.setEncoding('utf8');
+        response.on('data', function(data) {
+            data = JSON.parse(data);
+            console.log('>> ' + decodeURIComponent(text) + ' => ' + data.response);
+        });
+    }).pipe(res);
 });
