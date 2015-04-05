@@ -31,7 +31,8 @@ app.post('/', function(req, res) {
     var text = encodeURIComponent(req.body.text);
     // var key = '803e8edf-ee14-4d56-b1d4-c3c94dd80a4a';
     // var key = '6d5a32e7-6338-448c-a5fe-5e5e6fdbdf86';
-    var key = 'a0028721-f32b-4b24-a9dc-936cba516ad0';
+    // var key = 'a0028721-f32b-4b24-a9dc-936cba516ad0';
+    var key = '66c64213-adac-440e-ae37-fa819b92eafc';
     var url = 'http://sandbox.api.simsimi.com/request.p?key=' + key + '&lc=en&text=' + text;
     request(url).on('response', function(response) {
         response.setEncoding('utf8');
